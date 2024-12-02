@@ -1,0 +1,91 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-image: url('images/background6.jpg'); /* Set this to your default background */
+    background-size: cover; /* Ensures it covers the entire body */
+    background-position: center;
+    background-repeat: no-repeat;
+    overflow: auto;
+}
+
+
+.game-container {
+    text-align: center;
+}
+
+h1 {
+    margin-bottom: 20px;
+}
+
+.controls {
+    margin-bottom: 20px;
+}
+
+button {
+    padding: 10px;
+    margin: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #45a3ff; /* Darker blue shade on hover */
+    transform: scale(1.1); /* Slightly enlarge the button */
+    transition: all 0.3s ease; /* Smooth transition */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Add shadow for depth */
+}
+
+#puzzle-board {
+    display: grid;
+    grid-template-columns: repeat(4, 100px);
+    gap: 2px;
+    width: 404px;
+    height: 404px;
+    background-size: 400px 400px;
+    background-repeat: no-repeat;
+    margin: 0 auto;
+    margin-top: 20px;
+}
+
+.puzzle-piece {
+    width: 100px;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.6); 
+    border: 1px solid #ccc;
+    cursor: pointer;
+}
+
+.puzzle-piece.empty {
+    background-color: transparent;
+}
+
+.puzzle-piece.movablepiece {
+    cursor: pointer;
+}
+
+@keyframes shake {
+    0% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    50% { transform: translateX(5px); }
+    75% { transform: translateX(-5px); }
+    100% { transform: translateX(0); }
+}
+
+button#shuffle-btn:active {
+    animation: shake 0.3s ease; /* Shake effect when clicked */
+}
