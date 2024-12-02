@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sliding Puzzle Game</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+     <!--
+    Extra Features Implemented:
+    1. **Game Time with Music File**: 
+        - The game tracks the time elapsed in seconds and the total number of moves.
+        - Upon solving the puzzle, the time and number of moves are displayed.
+        - A music file is included to add some adrenaline to the game experience.
+    2. **Multiple Backgrounds**:
+        - The game offers at least four different background images.
+        - The game selects a random background on startup.
+        - The player can select a different background using a dropdown UI while playing.
+        - Background images are hosted on a web server, linked with full path URLs.
+    3. **Different Puzzle Sizes**:
+        - The game allows the player to choose different puzzle sizes, such as 3x3, 6x6, 8x8, and 10x10, using a UI control.
+    4. **Cheat Button**:
+        - A cheat button is included, which reveals the solution (i.e., shows the original shuffled puzzle in order).
+    5. **End-of-Game Notification**:
+        - Upon winning, a visual notification is displayed (not just an alert).
+        - This notification can include images, animations, or changes to the page appearance to signify the game has been won.
+        - All additional resources (e.g., images) are hosted on the web server and linked using full path URLs.
+    -->
+    <div class="game-container">
+        <h1 style="text-align: center; color: #4c564c; font-size: 3rem; font-family: 'Arial', sans-serif; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); margin-bottom: 20px;">
+            Sliding Puzzle Game
+        </h1>
+        
+        <div id="game-status"></div>
+        <div class="controls">
+            <button id="shuffle-btn" style="background-color: #3199ee; color: white; font-size: 1.2rem; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer; transition: background-color 0.3s ease;">
+                Shuffle
+            </button>
+            <button id="reset-btn" style="background-color: #3199ee; color: white; font-size: 1.2rem; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer; transition: background-color 0.3s ease;">
+                Reset
+            </button>
+            
+            <div>Moves: <span id="move-count">0</span></div>
+            <div>Time: <span id="game-time">0</span>s</div>
+            <!-- <div>Best Time: <span id="best-time">N/A</span></div>
+            <div>Best Moves: <span id="best-moves">N/A</span></div> -->
+            <select id="backgrounds" style="padding: 10px; font-size: 1rem; border-radius: 5px; border: 1px solid #ccc; background-color: #f9f9f9; cursor: pointer; margin-bottom: 20px;">
+                <option value="images/background1.png" style="padding: 5px; background-color: #f0f0f0; font-size: 1rem;">Background 1</option>
+                <option value="images/background2.png" style="padding: 5px; background-color: #f0f0f0; font-size: 1rem;">Background 2</option>
+                <option value="images/background3.png" style="padding: 5px; background-color: #f0f0f0; font-size: 1rem;">Background 3</option>
+                <option value="images/background4.png" style="padding: 5px; background-color: #f0f0f0; font-size: 1rem;">Background 4</option>
+            </select>
+            
+            <button id="music-toggle-btn" 
+            style="background-color: #78b0de; color: white; font-size: 1.2rem; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer; transition: background-color 0.3s ease;">
+        Play Music
+    </button>
+    
+            <audio id="background-music" loop>
+                <source src="music.mp3" type="audio/mp3">
+            </audio>
+            <select id="grid-size-selector" 
+            style="font-size: 1rem; padding: 8px 12px; border: 2px solid #ccc; border-radius: 5px; background-color: #f9f9f9; color: #333; cursor: pointer; transition: background-color 0.3s ease;">
+        <option value="4">4x4</option>
+        <option value="5">5x5</option>
+        <option value="6">6x6</option>
+        <option value="8">8x8</option>
+    </select>
+    
+        </div>
+        <div id="puzzle-board" class="puzzle-board"></div>
+    </div>
+
+    <script src="fifteen.js"></script>
+</body>
+</html>
